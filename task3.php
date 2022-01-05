@@ -15,6 +15,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     if(empty($email)){
         $errors['email'] = "Field Required";}
+         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors['email'] = "Invalid email format";
+         }
     
 
    if(empty($password)){
@@ -32,6 +35,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     if(empty($linkedinURL)){
         $errors['lnkedinURL'] = "Field Required";}
+
+        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$linkedinURL))
+         {$errors['lnkedinURL'] = "Invalid URL form";}
     
 //hna hatb3 l errors l mawgoda
     if(count($errors) > 0){
