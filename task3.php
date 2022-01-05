@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $address=$_POST['address'];
     $linkedinURL=$_POST['linkedinUrl'];
 
-    $errors = [];
+    $errors = []; //array to handle errors
 
     if(empty($Name)){
         $errors['Name'] = "Field Required";}
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if(empty($linkedinURL)){
         $errors['lnkedinURL'] = "Field Required";}
     
-
+//hna hatb3 l errors l mawgoda
     if(count($errors) > 0){
     foreach ($errors as $key => $value) {
         echo '* '.$key.' : '.$value.'<br>';}
@@ -59,7 +59,7 @@ else{
 
             <div>
                 <label> Email</label>
-            <input type="Email" name="email"  placeHolder="Please enter your email">
+            <input type="text" name="email"  placeHolder="Please enter your email">
         </div>
 
             <div>
@@ -74,7 +74,7 @@ else{
 
             <div>
                 <label> linkedin URL </label>
-            <input type="url" name="linkedinUrl"  placeHolder="Please enter your linkedin URL">
+            <input type="text" name="linkedinUrl"  placeHolder="Please enter your linkedin URL">
              </div>
 <div>
     <button  type="submit"  class="btn btn primary"> Submit </button>
